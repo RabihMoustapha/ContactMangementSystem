@@ -1,11 +1,13 @@
 import phonenumber
 
 class Contact:
+    phone_number = None
+
     def __init__(self, id, first_name, last_name):
         self.id = id
         self.firstname = first_name
         self.lastname = last_name
-        self.phone_number = phonenumber.PhoneNumber(number=None, id=None, country_code=None)
+        self.phone_number = []
 
     def __str__(self):
         return f"Contact(id={self.id}, firstname={self.firstname}, lastname={self.lastname}, phone_number={self.phone_number})"
@@ -21,3 +23,6 @@ class Contact:
 
     def get_phone_number(self):
         return self.phone_number
+
+    def add_phone_number(self, phone_number, id, country_code):
+        self.phone_number.append(phonenumber.PhoneNumber(phone_number, id, country_code))
